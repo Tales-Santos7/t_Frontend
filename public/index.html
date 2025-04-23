@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Taty - Lifestyle | Beauty | Study</title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./src/img/favicon-16x16.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/959c1b1c33.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body>
+  <ul class="none">
+    <li class="dropdown">
+      </a>
+      <a id="toggle" class="dropbtn"><i class="ri-menu-line"></i></a>
+      <div class="dropdown-content">
+        <img src="./src/img/Cópia-de-Taty.png" alt="Logo Tales" style="background-color: #0d0d17;">
+
+        <a href="./index.html" style=" background-color: #F4ECDF; color: #0d0d17;">Home</a>
+        <i class="icone-dropdown icone-dropdown-2 ri-user-3-fill"></i> <a href="#sobre">Sobre mim</a>
+        <i class="icone-dropdown icone-dropdown-3 ri-multi-image-fill"></i><a href="#galeria">
+          Galeria</a>
+        <i class="icone-dropdown icone-dropdown-3 ri-news-fill"></i><a href="#blog">
+          Blog</a>
+        <i class="icone-dropdown icone-dropdown-2 ri-phone-fill"></i><a href="#contato"> Contato</a>
+        <div class="fim-drop">
+          <a class="fim-drop fim-drop-1" href="https://www.instagram.com/taty_vanin/" target="_blank"><i
+              class="ri-instagram-fill"></i>
+          </a>
+          <a class="fim-drop fim-drop-2"
+            href="https://www.threads.net/@taty_vanin?xmt=AQGzEg0qyOdPiizlW4zHGQ5Bp3YKC91cfnIjRKsrGUzSxXc"
+            target="_blank"><i class="ri-threads-line"></i></a>
+        </div><br><br>
+        <!-- <span style="color: #F4ECDF;margin-left: 70px; font-size: 12px;margin-top: -30px;">
+          <br>Quem sonha, conquista🌟
+        </span> -->
+      </div>
+    </li>
+  </ul>
+
+  <div class="container">
+    <img src="./src/img/fundo.jpg" alt="">
+    <!-- Cabeçalho -->
+    <header class="header">
+      <nav class="menu">
+        <a href="https://tatyana-vanin.onrender.com/">
+          <li class="logo-tipo"><span>TATY </span><br> Lifestyle - Beauty - Study</li>
+        </a>
+        <ul>
+          <li><a class="size-nav" href="https://tatyana-vanin.onrender.com/">Home</a></li>
+          <li><a class="size-nav" href="#sobre">Sobre</a></li>
+          <li><a class="size-nav" href="#galeria">Galeria</a></li>
+          <li><a class="size-nav" href="#blog">Blog</a></li>
+          <li><a class="size-nav" href="#contato">Contato</a></li>
+          <a href="https://www.instagram.com/taty_vanin/" target="_blank"><i class="ri-instagram-line social"></i></a>
+          <a href="https://www.threads.net/@taty_vanin?xmt=AQGzEg0qyOdPiizlW4zHGQ5Bp3YKC91cfnIjRKsrGUzSxXc"
+            target="_blank"><i class="ri-threads-line social"></i></a>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Seção Principal -->
+    <main class="main-section">
+      <div class="overlay"></div>
+      <div class="content">
+        <!-- Conteúdo base para evitar erros no DOM -->
+        <h1><span>BELEZA ESTÁ</span><br> POR TUDO</h1>
+        <p>
+          Sou um parágrafo. Clique aqui para me editar e adicionar seu texto. Sou um ótimo lugar para contar sua
+          história e permitir que seus visitantes saibam um pouco mais sobre você.
+        </p>
+        <a href="#sobre" class="btn">SAIBA MAIS</a>
+        <script>
+          // Código para carregar conteúdo dinâmico
+          fetch('https://tatyana-vanin.onrender.com/content/mainSection')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              document.querySelector('h1').innerText = data.title;
+              document.querySelector('p').innerText = data.description;
+            })
+            .catch(error => console.error('Erro ao carregar conteúdo:', error));
+
+        </script>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Seção Galeria -->
+  <section id="galeria" class="galeria">
+    <h2 id="galeria">✨Galeria</h2>
+    <div id="galeria-container">
+      <script>
+        fetch('https://tatyana-vanin.onrender.com/content/gallery')
+          .then((response) => response.json())
+          .then((data) => {
+            const container = document.getElementById('galeria-container');
+            data.images.forEach((url) => {
+              const img = document.createElement('img');
+              img.src = url;
+              img.alt = 'Imagem da galeria';
+              img.classList.add('imagem-galeria');  // Adiciona a classe CSS
+              container.appendChild(img);
+            });
+          })
+          .catch((error) => console.error('Erro ao carregar galeria:', error));
+      </script>
+    </div>
+  </section>
+
+  <!-- Seção Sobre Mim -->
+  <section id="sobre" class="sobre">
+    <h2 id="about-title">Título Padrão</h2>
+    <p id="about-description">Descrição padrão.</p>
+  </section>
+  <script>
+    fetch('https://tatyana-vanin.onrender.com/content/about')
+      .then((response) => response.json())
+      .then((data) => {
+        document.querySelector('#about-title').innerText = data.title;
+        document.querySelector('#about-description').innerText = data.description;
+      })
+      .catch((error) => console.error('Erro ao carregar "Sobre Mim":', error));
+  </script>
+
+  </section>
+  <!-- Seção Blog -->
+  <!-- Seção Blog -->
+  <section id="blog" class="blog">
+    <h2>Blog</h2>
+   <!-- Posts -->
+   <div class="blog-posts" id="blog-posts-container"></div>
+
+   <div class="controles-posts" style="margin-top: 1rem; text-align: center;">
+     <button id="load-more" class="btn-post-more" style="display: none;">Mostrar mais</button>
+     <button id="show-less" class="btn-post-more" style="display: none; margin-left: 10px;">Mostrar menos</button>
+   </div>
+   
+   <script>
+     const postsPerPage = 8; // Número de posts por página
+     let currentPage = 1;
+     let allPosts = [];
+   
+     function renderPosts() {
+       const container = document.getElementById('blog-posts-container');
+       container.innerHTML = '';
+       const endIndex = postsPerPage * currentPage;
+       const visiblePosts = allPosts.slice(0, endIndex);
+   
+       visiblePosts.forEach(post => {
+         const imageUrl = `https://tatyana-vanin.onrender.com${post.imageUrl}`;
+         const postDate = new Date(post.createdAt);
+         const formattedDate = isNaN(postDate) ? 'Data inválida' : postDate.toLocaleDateString('pt-BR');
+         const postElement = document.createElement('div');
+         postElement.classList.add('post');
+         postElement.innerHTML = `
+           <img src="${imageUrl}" alt="${post.title}" class="post-image">
+           <h3>${post.title}</h3>
+           <p>${post.content}</p>
+           <p class="post-date">Publicado em: ${formattedDate}</p>
+           <a href="#" class="btn-post">Leia Mais</a>
+         `;
+         container.appendChild(postElement);
+       });
+   
+       const btnLoadMore = document.getElementById('load-more');
+       const btnShowLess = document.getElementById('show-less');
+   
+       if (visiblePosts.length < allPosts.length) {
+         btnLoadMore.style.display = 'inline-block';
+         btnShowLess.style.display = 'none';
+       } else if (currentPage > 1) {
+         btnLoadMore.style.display = 'none';
+         btnShowLess.style.display = 'inline-block';
+       } else {
+         btnLoadMore.style.display = 'none';
+         btnShowLess.style.display = 'none';
+       }
+     }
+   
+     fetch('https://tatyana-vanin.onrender.com/blog')
+       .then(response => response.json())
+       .then(posts => {
+         allPosts = posts;
+         renderPosts();
+       })
+       .catch(error => console.error('Erro ao carregar os posts do blog:', error));
+   
+     document.getElementById('load-more').addEventListener('click', () => {
+       currentPage++;
+       renderPosts();
+     });
+   
+     document.getElementById('show-less').addEventListener('click', () => {
+       currentPage = 1;
+       renderPosts();
+       window.scrollTo({ top: document.getElementById('blog-posts-container').offsetTop, behavior: 'smooth' });
+     });
+   </script>
+   
+  </section>
+
+  <footer class="rodape">
+    <div class="container-rodape">
+      <div class="linha">
+
+        <div class="rodape-col-2">
+          <a href="https://tatyana-vanin.onrender.com/">
+            <img src="./src/img/logo-180x34.jpg" alt="Logo Taty">
+          </a>
+        </div>
+
+        <div id="contato" class="rodape-col-3">
+          <h3>Mais informações</h3>
+          <ul>
+            <li><a href="https://tatyana-vanin.onrender.com/">Home</a></li>
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <script>document.addEventListener("DOMContentLoaded", function () {
+            fetch("https://tatyana-vanin.onrender.com/social-links")
+              .then((response) => response.json())
+              .then((links) => {
+                const socialList = document.querySelector(".rodape-col-4 ul");
+                socialList.innerHTML = ""; // Limpa a lista antes de inserir os links dinâmicos
+
+                links.forEach((link) => {
+                  const listItem = document.createElement("li");
+                  const anchor = document.createElement("a");
+                  anchor.href = link.url;
+                  anchor.textContent = link.name;
+                  anchor.target = "_blank"; // Abre o link em uma nova aba
+                  listItem.appendChild(anchor);
+                  socialList.appendChild(listItem);
+                });
+              })
+              .catch((error) => console.error("Erro ao carregar redes sociais:", error));
+          });
+        </script>
+
+        <div class="rodape-col-4">
+          <h3>Redes Sociais</h3>
+          <ul>
+            <!-- Os links serão carregados dinamicamente aqui -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="direitos">&copy; 2025 <a href="https://tatyana-vanin.onrender.com/"
+        style="color: #fff; background-color: rgba(0, 0, 0, 0.308); padding: 5px; border-radius: 8px; text-decoration: none;">Taty</a> - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="./src/js/index.js"></script>
+</body>
+
+</html>
