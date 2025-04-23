@@ -76,10 +76,12 @@
       <div class="overlay"></div>
       <div class="content">
         <!-- Conteúdo base para evitar erros no DOM -->
-        <h1><span>BELEZA ESTÁ</span><br> POR TUDO</h1>
+        <h1>MÍDIA KIT - TATY VANIN</h1>
         <p>
-          Sou um parágrafo. Clique aqui para me editar e adicionar seu texto. Sou um ótimo lugar para contar sua
-          história e permitir que seus visitantes saibam um pouco mais sobre você.
+          Oi galera, tudo bom?<br><br>
+          Meu nome é Tatyana, sou influenciadora digital de FRANCA- SP. Meu nicho é voltado com foco em moda, academia,
+          beleza, viagens, lifestyle e outros conteúdos, Acredito que minha audiência se alinha perfeitamente com os
+          valores e produtos de sua empresa.
         </p>
         <a href="#sobre" class="btn">SAIBA MAIS</a>
         <script>
@@ -145,76 +147,76 @@
   <!-- Seção Blog -->
   <section id="blog" class="blog">
     <h2>Blog</h2>
-   <!-- Posts -->
-   <div class="blog-posts" id="blog-posts-container"></div>
+    <!-- Posts -->
+    <div class="blog-posts" id="blog-posts-container"></div>
 
-   <div class="controles-posts" style="margin-top: 1rem; text-align: center;">
-     <button id="load-more" class="btn-post-more" style="display: none;">Mostrar mais</button>
-     <button id="show-less" class="btn-post-more" style="display: none; margin-left: 10px;">Mostrar menos</button>
-   </div>
-   
-   <script>
-     const postsPerPage = 8; // Número de posts por página
-     let currentPage = 1;
-     let allPosts = [];
-   
-     function renderPosts() {
-       const container = document.getElementById('blog-posts-container');
-       container.innerHTML = '';
-       const endIndex = postsPerPage * currentPage;
-       const visiblePosts = allPosts.slice(0, endIndex);
-   
-       visiblePosts.forEach(post => {
-         const imageUrl = `https://tatyana-vanin.onrender.com${post.imageUrl}`;
-         const postDate = new Date(post.createdAt);
-         const formattedDate = isNaN(postDate) ? 'Data inválida' : postDate.toLocaleDateString('pt-BR');
-         const postElement = document.createElement('div');
-         postElement.classList.add('post');
-         postElement.innerHTML = `
+    <div class="controles-posts" style="margin-top: 1rem; text-align: center;">
+      <button id="load-more" class="btn-post-more" style="display: none;">Mostrar mais</button>
+      <button id="show-less" class="btn-post-more" style="display: none; margin-left: 10px;">Mostrar menos</button>
+    </div>
+
+    <script>
+      const postsPerPage = 8; // Número de posts por página
+      let currentPage = 1;
+      let allPosts = [];
+
+      function renderPosts() {
+        const container = document.getElementById('blog-posts-container');
+        container.innerHTML = '';
+        const endIndex = postsPerPage * currentPage;
+        const visiblePosts = allPosts.slice(0, endIndex);
+
+        visiblePosts.forEach(post => {
+          const imageUrl = `https://tatyana-vanin.onrender.com${post.imageUrl}`;
+          const postDate = new Date(post.createdAt);
+          const formattedDate = isNaN(postDate) ? 'Data inválida' : postDate.toLocaleDateString('pt-BR');
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
            <img src="${imageUrl}" alt="${post.title}" class="post-image">
            <h3>${post.title}</h3>
            <p>${post.content}</p>
            <p class="post-date">Publicado em: ${formattedDate}</p>
            <a href="#" class="btn-post">Leia Mais</a>
          `;
-         container.appendChild(postElement);
-       });
-   
-       const btnLoadMore = document.getElementById('load-more');
-       const btnShowLess = document.getElementById('show-less');
-   
-       if (visiblePosts.length < allPosts.length) {
-         btnLoadMore.style.display = 'inline-block';
-         btnShowLess.style.display = 'none';
-       } else if (currentPage > 1) {
-         btnLoadMore.style.display = 'none';
-         btnShowLess.style.display = 'inline-block';
-       } else {
-         btnLoadMore.style.display = 'none';
-         btnShowLess.style.display = 'none';
-       }
-     }
-   
-     fetch('https://tatyana-vanin.onrender.com/blog')
-       .then(response => response.json())
-       .then(posts => {
-         allPosts = posts;
-         renderPosts();
-       })
-       .catch(error => console.error('Erro ao carregar os posts do blog:', error));
-   
-     document.getElementById('load-more').addEventListener('click', () => {
-       currentPage++;
-       renderPosts();
-     });
-   
-     document.getElementById('show-less').addEventListener('click', () => {
-       currentPage = 1;
-       renderPosts();
-       window.scrollTo({ top: document.getElementById('blog-posts-container').offsetTop, behavior: 'smooth' });
-     });
-   </script>
-   
+          container.appendChild(postElement);
+        });
+
+        const btnLoadMore = document.getElementById('load-more');
+        const btnShowLess = document.getElementById('show-less');
+
+        if (visiblePosts.length < allPosts.length) {
+          btnLoadMore.style.display = 'inline-block';
+          btnShowLess.style.display = 'none';
+        } else if (currentPage > 1) {
+          btnLoadMore.style.display = 'none';
+          btnShowLess.style.display = 'inline-block';
+        } else {
+          btnLoadMore.style.display = 'none';
+          btnShowLess.style.display = 'none';
+        }
+      }
+
+      fetch('https://tatyana-vanin.onrender.com/blog')
+        .then(response => response.json())
+        .then(posts => {
+          allPosts = posts;
+          renderPosts();
+        })
+        .catch(error => console.error('Erro ao carregar os posts do blog:', error));
+
+      document.getElementById('load-more').addEventListener('click', () => {
+        currentPage++;
+        renderPosts();
+      });
+
+      document.getElementById('show-less').addEventListener('click', () => {
+        currentPage = 1;
+        renderPosts();
+        window.scrollTo({ top: document.getElementById('blog-posts-container').offsetTop, behavior: 'smooth' });
+      });
+    </script>
+
   </section>
 
   <footer class="rodape">
@@ -269,7 +271,8 @@
     </div>
     <hr>
     <p class="direitos">&copy; 2025 <a href="https://tatyana-vanin.onrender.com/"
-        style="color: #fff; background-color: rgba(0, 0, 0, 0.308); padding: 5px; border-radius: 8px; text-decoration: none;">Taty</a> - Todos os direitos reservados.</p>
+        style="color: #fff; background-color: rgba(0, 0, 0, 0.308); padding: 5px; border-radius: 8px; text-decoration: none;">Taty</a>
+      - Todos os direitos reservados.</p>
   </footer>
 
   <script src="./src/js/index.js"></script>
