@@ -53,6 +53,42 @@ app.delete("/content/gallery", async (req, res) => {
   }
 });
 
+//ATUALIZAR GALERIA
+app.put("/content/gallery/update", upload.single("image"), async (req, res) => {
+  try {
+    const { oldImageUrl } = req.body;
+    if (!oldImageUrl || !req.file) {
+      return res.status(400).json({ message: "Dados insuficientes para atualizar a imagem." });
+    }
+
+    const gallery = await Content.findOne({ section: "gallery" });
+    if (!gallery) return res.status(404).json({ message: "Galeria não encontrada" });
+
+    const index = gallery.images.indexOf(oldImageUrl);
+    if (index === -1) return res.status(404).json({ message: "Imagem não encontrada na galeria" });
+
+    const formData = new FormData();
+    formData.append("image", fs.createReadStream(req.file.path));
+
+    const response = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${process.env.POSTIMAGES_API_KEY}`,
+      formData,
+      { headers: formData.getHeaders() }
+    );
+
+    const newImageUrl = response.data.data.url;
+    fs.unlinkSync(req.file.path); // Remove o ficheiro temporário
+
+    gallery.images[index] = newImageUrl;
+    await gallery.save();
+
+    res.json({ images: gallery.images });
+  } catch (error) {
+    console.error("Erro ao atualizar imagem:", error);
+    res.status(500).json({ message: "Erro ao atualizar imagem" });
+  }
+});
+
 app.put("/content/gallery", upload.array("images", 10), async (req, res) => {
   try {
     let gallery = await Content.findOne({ section: "gallery" });
