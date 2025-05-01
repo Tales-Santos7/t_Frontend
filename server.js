@@ -124,6 +124,33 @@ app.put("/content/gallery", upload.array("images", 10), async (req, res) => {
   }
 });
 
+// Atualizar a cor
+app.put("/content/theme", async (req, res) => {
+  const { color } = req.body;
+  try {
+    const updated = await Content.findOneAndUpdate(
+      { section: "theme" },
+      { color },
+      { new: true, upsert: true }
+    );
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao atualizar o tema" });
+  }
+});
+
+app.get("/content/theme", async (req, res) => {
+  try {
+    const theme = await Content.findOne({ section: "theme" });
+    if (!theme) {
+      return res.status(404).json({ message: "Tema não encontrado" });
+    }
+    res.json(theme);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao obter o tema" });
+  }
+});
+
 app.put("/content/:section", async (req, res) => {
   const { section } = req.params;
   const { title, description } = req.body;

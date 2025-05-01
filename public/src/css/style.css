@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --cor-principal: #ff007f;
+  --primary-color: #ff007f;
 }
 
 * {
@@ -31,7 +31,7 @@ body {
   text-decoration: none;
   list-style: none;
   position: absolute;
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
@@ -85,7 +85,7 @@ body {
 .main-section .btn {
   display: inline-block;
   padding: 10px 30px;
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   font-weight: 400;
@@ -96,12 +96,12 @@ body {
 }
 
 .main-section .btn:hover {
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
 }
 
 /* Cabeçalho */
 .header {
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -279,7 +279,7 @@ body {
 .btn-post {
   display: inline-block;
   padding: 10px 20px;
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -289,11 +289,11 @@ body {
 }
 
 .btn-post:hover {
-  background-color: var(--cor-principal);
+  background-color: var(--primary-color);
 }
 
 .btn-post-more {
-  background: linear-gradient(135deg, #ff007f, #8e2de2);
+  background: linear-gradient(135deg, var(--primary-color), #0e011a);
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -315,7 +315,7 @@ body {
 }
 
 .rodape {
-  background: var(--cor-principal);
+  background: var(--primary-color);
   color: white;
   padding: 10px 5px 10px;
   font-size: 15px;

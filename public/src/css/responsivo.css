@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #ff007f;
+}
+
 @media (max-width: 500px) {
   body {
     overflow-x: hidden !important;
@@ -103,9 +107,9 @@
 @media (max-width: 780px) {
   .dropdown-content {
     display: none;
-    border-left: 2px solid #270338;
+    border-left: 2px solid #0e011a;
     position: fixed;
-    background: #ff007f;
+    background: var(--primary-color);
     width: 290px;
     height: 100vh;
     padding: 10px;

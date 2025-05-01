@@ -21,6 +21,16 @@
 </head>
 
 <body>
+  <script>
+    fetch("https://tatyana-vanin.onrender.com/content/theme")
+      .then(res => res.json())
+      .then(data => {
+        if (data.color) {
+          document.documentElement.style.setProperty('--primary-color', data.color);
+        }
+      });
+  </script>
+
   <ul class="none">
     <li class="dropdown">
       </a>
