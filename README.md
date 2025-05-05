@@ -14,9 +14,9 @@ O projeto oferece uma interface intuitiva, com seções totalmente personalizave
 
 ## Sobre esse Projeto 
 
- Personalizavel: A cliente tem total controle sobre a cor, os textos e as imagens que estão no site.
- Painel de controle intuitivo: Painel de controle fácil de entender e de mecher.
- Responsivo: Otimizado para desktop e dispositivos móveis. 
+ • <strong>Personalizavel</strong>: A cliente tem total controle sobre a cor, os textos e as imagens que estão no site.<br>
+ • <strong>Painel de controle intuitivo</strong>: Painel de controle fácil de entender e de mecher.<br>
+ • <strong>Responsivo</strong>: Otimizado para desktop e dispositivos móveis. 
 
 ### Construído com
 
