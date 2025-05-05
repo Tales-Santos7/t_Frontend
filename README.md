@@ -1,6 +1,6 @@
 # Tatyana Vanin - parte visual (Vercel)
 
-tatyana Vanin é uma aplicação web, desenvolvida como um projeto freelancer para a [Tatyana Vanin](https://www.instagram.com/taty_vanin/).
+Tatyana Vanin é uma aplicação web, desenvolvida como um projeto freelancer para a [Tatyana Vanin](https://www.instagram.com/taty_vanin/).
 O projeto oferece uma interface intuitiva, com seções totalmente personalizaveis (Pode-se alterar a cor principal do site, as imagens da galeria, os textos de todas as seções e os links.)
 ## Visão geral
 
