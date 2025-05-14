@@ -11,6 +11,8 @@ O projeto oferece uma interface intuitiva, com seções totalmente personalizave
 ### Links
 
 - URL do site ativo: [🛜Projeto ativo aqui💻](https://tatyana-vanin.vercel.app/)
+- [Painel de Controle](https://github.com/Tales-Santos7/t_f).<br>
+- [Back-end (Render)](https://github.com/Tales-Santos7/t_b).
 
 ## Sobre esse Projeto 
 
@@ -27,11 +29,6 @@ O projeto oferece uma interface intuitiva, com seções totalmente personalizave
    - NodeJs <img align="center" alt="NodeJs" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"><br><br>
    - MongoDB <img align="center" alt="MongoDB" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"><br>
 </div>
-
-### Outras Partes do Projeto
-
-[Painel de Controle](https://github.com/Tales-Santos7/t_f).<br>
-[Back-end (Render)](https://github.com/Tales-Santos7/t_b).
 
 ## Outros
 
