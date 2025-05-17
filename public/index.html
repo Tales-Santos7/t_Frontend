@@ -187,7 +187,7 @@
            <h3>${post.title}</h3>
            <p>${post.content}</p>
            <p class="post-date">Publicado em: ${formattedDate}</p>
-           <a href="#" class="btn-post">Leia Mais</a>
+           <a href="post.html?id=${post._id}" class="btn-post">Leia Mais</a>
          `;
           container.appendChild(postElement);
         });
