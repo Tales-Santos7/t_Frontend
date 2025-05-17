@@ -112,7 +112,10 @@
             });
           if (post.imageUrl) {
             const img = document.getElementById("image");
-            img.src = post.imageUrl; 
+            // Verifica se a URL da imagem já começa com http, senão adiciona o domínio base
+            img.src = post.imageUrl.startsWith("http")
+              ? post.imageUrl
+              : `https://tatyana-vanin.onrender.com${post.imageUrl}`;
             img.style.display = "block";
           }
         })
