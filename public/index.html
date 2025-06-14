@@ -21,16 +21,6 @@
 </head>
 
 <body>
-  <script>
-    fetch("https://tatyana-vanin.onrender.com/content/theme")
-      .then(res => res.json())
-      .then(data => {
-        if (data.color) {
-          document.documentElement.style.setProperty('--primary-color', data.color);
-        }
-      });
-  </script>
-
   <ul class="none">
     <li class="dropdown">
       </a>
@@ -94,46 +84,14 @@
           valores e produtos de sua empresa.
         </p>
         <a href="#sobre" class="btn">SAIBA MAIS</a>
-        <script>
-          // Código para carregar conteúdo dinâmico
-          fetch('https://tatyana-vanin.onrender.com/content/mainSection')
-            .then(response => {
-              if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.status}`);
-              }
-              return response.json();
-            })
-            .then(data => {
-              document.querySelector('h1').innerText = data.title;
-              document.querySelector('p').innerText = data.description;
-            })
-            .catch(error => console.error('Erro ao carregar conteúdo:', error));
-
-        </script>
       </div>
     </main>
-
   </div>
 
   <!-- Seção Galeria -->
   <section id="galeria" class="galeria">
     <h2 id="galeria">✨Galeria</h2>
     <div id="galeria-container">
-      <script>
-        fetch('https://tatyana-vanin.onrender.com/content/gallery')
-          .then((response) => response.json())
-          .then((data) => {
-            const container = document.getElementById('galeria-container');
-            data.images.forEach((url) => {
-              const img = document.createElement('img');
-              img.src = url;
-              img.alt = 'Imagem da galeria';
-              img.classList.add('imagem-galeria');  // Adiciona a classe CSS
-              container.appendChild(img);
-            });
-          })
-          .catch((error) => console.error('Erro ao carregar galeria:', error));
-      </script>
     </div>
   </section>
 
@@ -142,18 +100,7 @@
     <h2 id="about-title">Título Padrão</h2>
     <p id="about-description">Descrição padrão.</p>
   </section>
-  <script>
-    fetch('https://tatyana-vanin.onrender.com/content/about')
-      .then((response) => response.json())
-      .then((data) => {
-        document.querySelector('#about-title').innerText = data.title;
-        document.querySelector('#about-description').innerText = data.description;
-      })
-      .catch((error) => console.error('Erro ao carregar "Sobre Mim":', error));
-  </script>
 
-  </section>
-  <!-- Seção Blog -->
   <!-- Seção Blog -->
   <section id="blog" class="blog">
     <h2>Blog</h2>
@@ -164,69 +111,6 @@
       <button id="load-more" class="btn-post-more" style="display: none;">Mostrar mais</button>
       <button id="show-less" class="btn-post-more" style="display: none; margin-left: 10px;">Mostrar menos</button>
     </div>
-
-    <script>
-      const postsPerPage = 8; // Número de posts por página
-      let currentPage = 1;
-      let allPosts = [];
-
-      function renderPosts() {
-        const container = document.getElementById('blog-posts-container');
-        container.innerHTML = '';
-        const endIndex = postsPerPage * currentPage;
-        const visiblePosts = allPosts.slice(0, endIndex);
-
-        visiblePosts.forEach(post => {
-          const imageUrl = `https://tatyana-vanin.onrender.com${post.imageUrl}`;
-          const postDate = new Date(post.createdAt);
-          const formattedDate = isNaN(postDate) ? 'Data inválida' : postDate.toLocaleDateString('pt-BR');
-          const postElement = document.createElement('div');
-          postElement.classList.add('post');
-          postElement.innerHTML = `
-           <img src="${imageUrl}" alt="${post.title}" class="post-image">
-           <h3>${post.title}</h3>
-           <p>${post.content}</p>
-           <p class="post-date">Publicado em: ${formattedDate}</p>
-           <a href="post.html?id=${post._id}" class="btn-post">Leia Mais</a>
-         `;
-          container.appendChild(postElement);
-        });
-
-        const btnLoadMore = document.getElementById('load-more');
-        const btnShowLess = document.getElementById('show-less');
-
-        if (visiblePosts.length < allPosts.length) {
-          btnLoadMore.style.display = 'inline-block';
-          btnShowLess.style.display = 'none';
-        } else if (currentPage > 1) {
-          btnLoadMore.style.display = 'none';
-          btnShowLess.style.display = 'inline-block';
-        } else {
-          btnLoadMore.style.display = 'none';
-          btnShowLess.style.display = 'none';
-        }
-      }
-
-      fetch('https://tatyana-vanin.onrender.com/blog')
-        .then(response => response.json())
-        .then(posts => {
-          allPosts = posts;
-          renderPosts();
-        })
-        .catch(error => console.error('Erro ao carregar os posts do blog:', error));
-
-      document.getElementById('load-more').addEventListener('click', () => {
-        currentPage++;
-        renderPosts();
-      });
-
-      document.getElementById('show-less').addEventListener('click', () => {
-        currentPage = 1;
-        renderPosts();
-        window.scrollTo({ top: document.getElementById('blog-posts-container').offsetTop, behavior: 'smooth' });
-      });
-    </script>
-
   </section>
 
   <footer class="rodape">
@@ -250,27 +134,6 @@
           </ul>
         </div>
 
-        <script>document.addEventListener("DOMContentLoaded", function () {
-            fetch("https://tatyana-vanin.onrender.com/social-links")
-              .then((response) => response.json())
-              .then((links) => {
-                const socialList = document.querySelector(".rodape-col-4 ul");
-                socialList.innerHTML = ""; // Limpa a lista antes de inserir os links dinâmicos
-
-                links.forEach((link) => {
-                  const listItem = document.createElement("li");
-                  const anchor = document.createElement("a");
-                  anchor.href = link.url;
-                  anchor.textContent = link.name;
-                  anchor.target = "_blank"; // Abre o link em uma nova aba
-                  listItem.appendChild(anchor);
-                  socialList.appendChild(listItem);
-                });
-              })
-              .catch((error) => console.error("Erro ao carregar redes sociais:", error));
-          });
-        </script>
-
         <div class="rodape-col-4">
           <h3>Redes Sociais</h3>
           <ul>
@@ -284,7 +147,8 @@
       - Todos os direitos reservados.</p>
   </footer>
 
-  <script src="./src/js/index.js"></script>
+  <script src="./src/js/menuMobile.js"></script>
+  <script src="./src/js/scripts.js"></script>
 </body>
 
 </html>

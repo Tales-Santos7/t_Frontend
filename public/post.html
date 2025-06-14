@@ -78,7 +78,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="card">
     <h1 id="title">Carregando título...</h1>
@@ -88,44 +87,7 @@
     <a href="./index.html" class="btn">🡸 Voltar para a página inicial</a>
   </div>
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get("id");
-
-    if (!postId) {
-      document.getElementById("title").innerText = "ID do post não encontrado.";
-      document.getElementById("content").style.display = "none";
-    } else {
-      fetch(`https://tatyana-vanin.onrender.com/blog/${postId}`)
-        .then((res) => {
-          if (!res.ok) throw new Error("Post não encontrado");
-          return res.json();
-        })
-        .then((post) => {
-          document.getElementById("title").innerText = post.title;
-          document.getElementById("content").innerText = post.content;
-          document.getElementById("date").innerText =
-            "Publicado em: " + new Date(post.createdAt).toLocaleDateString("pt-BR", {
-              year: "numeric",
-              month: "long",
-              day: "numeric"
-            });
-          if (post.imageUrl) {
-            const img = document.getElementById("image");
-            // Verifica se a URL da imagem já começa com http, senão adiciona o domínio base
-            img.src = post.imageUrl.startsWith("http")
-              ? post.imageUrl
-              : `https://tatyana-vanin.onrender.com${post.imageUrl}`;
-            img.style.display = "block";
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-          document.getElementById("title").innerText = "Erro ao carregar post.";
-          document.getElementById("content").innerText = "";
-        });
-    }
-  </script>
+  <script src="./src/js/scripts.js"></script>
 </body>
 
 </html>
