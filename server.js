@@ -305,6 +305,16 @@ app.post("/social-links", async (req, res) => {
   }
 });
 
+app.delete("/social-links/:id", async (req, res) => {
+  try {
+    const deleted = await SocialLink.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ message: "Link não encontrado" });
+    res.json({ message: "Link excluído com sucesso" });
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao excluir link" });
+  }
+});
+
 // Serve arquivos estáticos como CSS, imagens e JS
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
