@@ -143,13 +143,20 @@ if (!postId) {
 
 // RODAPÉ - REDES SOCIAIS
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM carregado – iniciando fetch das redes sociais");
+
   fetch("https://tatyana-vanin.onrender.com/social-links")
     .then((response) => response.json())
     .then((links) => {
-      const socialList = document.querySelector(".rodape-col-4 ul");
-      if (!socialList) return;
-      socialList.innerHTML = "";
+      console.log("Links recebidos:", links);
 
+      const socialList = document.querySelector(".rodape-col-4 ul");
+      if (!socialList) {
+        console.error("Elemento .rodape-col-4 ul não encontrado no DOM!");
+        return;
+      }
+
+      socialList.innerHTML = "";
       links.forEach((link) => {
         const listItem = document.createElement("li");
         const anchor = document.createElement("a");
