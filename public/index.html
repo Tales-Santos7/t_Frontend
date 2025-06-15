@@ -143,12 +143,32 @@
       </div>
     </div>
     <hr>
-    <p class="direitos">&copy; 2025 <a href="https://tatyana-vanin.vercel.app/"style="color: #fff; background-color: rgba(0, 0, 0, 0.308); padding: 5px; border-radius: 8px; text-decoration: none;">Taty</a>
+    <p class="direitos">&copy; 2025 <a href="https://tatyana-vanin.vercel.app/"
+        style="color: #fff; background-color: rgba(0, 0, 0, 0.308); padding: 5px; border-radius: 8px; text-decoration: none;">Taty</a>
       - Todos os direitos reservados.</p>
   </footer>
-
   <script src="./src/js/menuMobile.js"></script>
   <script src="./src/js/scripts.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+      fetch("https://tatyana-vanin.onrender.com/social-links")
+        .then((response) => response.json())
+        .then((links) => {
+          const socialList = document.querySelector(".rodape-col-4 ul");
+          if (!socialList) return;
+          socialList.innerHTML = "";
+
+          links.forEach((link) => {
+            const listItem = document.createElement("li");
+            const anchor = document.createElement("a");
+            anchor.href = link.url;
+            anchor.textContent = link.name;
+            anchor.target = "_blank";
+            listItem.appendChild(anchor);
+            socialList.appendChild(listItem);
+          });
+        })
+        .catch((error) => console.error("Erro ao carregar redes sociais:", error));
+    });</script>
 </body>
 
 </html>
